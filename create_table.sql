@@ -15,8 +15,8 @@ CREATE TABLE heroe (
 	velocidad INT
 );
 
-DROP TABLE IF EXISTS monstruo;
-CREATE TABLE monstruo (
+DROP TABLE IF EXISTS villano;
+CREATE TABLE villano (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	nombre varchar(20),
 	vida INT,
