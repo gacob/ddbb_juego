@@ -1,3 +1,5 @@
+USE ddbb_juego;
+
 -- Procedure Fight
 DROP PROCEDURE IF EXISTS fight;
 delimiter //
@@ -53,4 +55,4 @@ BEGIN
 END
 //
 
-CALL fight ("Aetheron","Zarvox");
+-- CALL fight ("Aetheron","Zarvox");

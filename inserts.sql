@@ -1,3 +1,5 @@
+USE ddbb_juego;
+
 DELETE FROM heroe;
 INSERT INTO heroe (nombre, vida, ataque_p, ataque_m, defensa_p, defensa_m, velocidad) VALUES
 ('Aetheron', 100, 20, 15, 10, 5, 30),

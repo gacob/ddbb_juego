@@ -1,3 +1,5 @@
+USE ddbb_juego;
+
 -- Procedure Prefight
 DROP PROCEDURE IF EXISTS prefight;
 delimiter //
