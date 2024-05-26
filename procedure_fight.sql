@@ -28,12 +28,12 @@ BEGIN
         
         IF h_speed > v_speed THEN
 			-- Héroe ataca primero
-			SELECT heroe_turn(v_vida) INTO v_vida;
-            SELECT mob_turn(h_vida) INTO h_vida;
+			SELECT heroe_turn(h_id, v_id) INTO v_vida;
+            SELECT mob_turn(h_id, v_id) INTO h_vida;
         ELSE
 			-- Villano ataca primero
-			SELECT mob_turn(h_vida) INTO h_vida;
-			SELECT heroe_turn(v_vida) INTO v_vida;
+			SELECT mob_turn(h_id, v_id) INTO h_vida;
+			SELECT heroe_turn(h_id, v_id) INTO v_vida;
         END IF;
         
         IF h_vida > 0 THEN
