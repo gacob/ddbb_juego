@@ -22,25 +22,35 @@ BEGIN
     
     -- Combate
     _loop: LOOP 
+		
+        -- Salimos del bucle si Héroe o Villano muere
 		IF h_vida <= 0 or v_vida <= 0 THEN
 			leave _loop;
 		END IF;
         
         IF h_speed > v_speed THEN
 			-- Héroe ataca primero
-			SELECT heroe_turn(h_id, v_id) INTO v_vida;
-            SELECT mob_turn(h_id, v_id) INTO h_vida;
+			SELECT heroe_turn(h_id, v_id, v_vida) INTO v_vida;
+            UPDATE combate SET villano_vida=v_vida WHERE villano_id=v_id;
+            
+            SELECT mob_turn(h_id, v_id, h_vida) INTO h_vida;
+            UPDATE combate SET heroe_vida=h_vida WHERE heroe_id=h_id;
         ELSE
 			-- Villano ataca primero
-			SELECT mob_turn(h_id, v_id) INTO h_vida;
-			SELECT heroe_turn(h_id, v_id) INTO v_vida;
+			SELECT mob_turn(h_id, v_id, h_vida) INTO h_vida;
+            UPDATE combate SET heroe_vida=h_vida WHERE heroe_id=h_id;
+            
+			SELECT heroe_turn(h_id, v_id, v_vida) INTO v_vida;
+            UPDATE combate SET villano_vida=v_vida WHERE villano_id=v_id;
         END IF;
-        
-        IF h_vida > 0 THEN
+    END LOOP;
+    
+    IF h_vida > 0 THEN
 			SELECT "El héroe es el ganador";
 		ELSE
 			SELECT "El Villano es el ganador";
 		END IF;
-    END LOOP;
 END
 //
+
+CALL fight ("Aetheron","Zarvox");

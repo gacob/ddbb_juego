@@ -1,3 +1,4 @@
+DELETE FROM heroe;
 INSERT INTO heroe (nombre, vida, ataque_p, ataque_m, defensa_p, defensa_m, velocidad) VALUES
 ('Aetheron', 100, 20, 15, 10, 5, 30),
 ('Blazara', 100, 18, 20, 12, 8, 25),
@@ -10,7 +11,7 @@ INSERT INTO heroe (nombre, vida, ataque_p, ataque_m, defensa_p, defensa_m, veloc
 ('Icarus', 100, 27, 14, 16, 13, 24),
 ('Jorvax', 100, 21, 19, 17, 14, 26);
 
-
+DELETE FROM villano;
 INSERT INTO villano (nombre, vida, ataque_p, ataque_m, defensa_p, defensa_m, velocidad) VALUES
 ('Zarvox', 100, 21, 18, 12, 6, 28),
 ('Kragor', 100, 20, 22, 14, 10, 26),

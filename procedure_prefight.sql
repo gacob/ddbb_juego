@@ -20,3 +20,5 @@ BEGIN
     (h_id, h_vida, v_id, v_vida);
 END
 //
+
+-- CALL prefight ("Aetheron","Zarvox");
