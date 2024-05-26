@@ -48,7 +48,7 @@ DROP TABLE IF EXISTS combate_records;
 CREATE TABLE combate_records (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     cantidad_victorias INT,
-    heroe_id INT,
-    villano_id INT
+    heroe_id INT NULL,
+    villano_id INT NULL
 );
 
