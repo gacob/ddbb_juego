@@ -52,3 +52,8 @@ CREATE TABLE combate_records (
     villano_id INT NULL
 );
 
+DROP TABLE IF EXISTS prueba;
+CREATE TABLE prueba (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nada INT
+);

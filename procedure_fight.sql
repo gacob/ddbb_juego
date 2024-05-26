@@ -34,14 +34,27 @@ BEGIN
 			-- Héroe ataca primero
 			SELECT heroe_turn(h_id, v_id, v_vida) INTO v_vida;
             UPDATE combate SET villano_vida=v_vida WHERE villano_id=v_id;
-            
+        
+			IF h_vida <= 0 or v_vida <= 0 THEN
+				leave _loop;
+			END IF;
+        
             SELECT mob_turn(h_id, v_id, h_vida) INTO h_vida;
             UPDATE combate SET heroe_vida=h_vida WHERE heroe_id=h_id;
+            
+			IF h_vida <= 0 or v_vida <= 0 THEN
+				leave _loop;
+			END IF;
+        
         ELSE
 			-- Villano ataca primero
 			SELECT mob_turn(h_id, v_id, h_vida) INTO h_vida;
             UPDATE combate SET heroe_vida=h_vida WHERE heroe_id=h_id;
-            
+        
+			IF h_vida <= 0 or v_vida <= 0 THEN
+				leave _loop;
+			END IF;
+        
 			SELECT heroe_turn(h_id, v_id, v_vida) INTO v_vida;
             UPDATE combate SET villano_vida=v_vida WHERE villano_id=v_id;
         END IF;
